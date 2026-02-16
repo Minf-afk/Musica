@@ -7,6 +7,8 @@ ep1.AdicionarConvidado("Alexandre");
 ep1.AdicionarConvidado("Maria");
 
 var ep2 = new Episodio(dur: 30, ordem: 2, descri: "Encapsulamento e propriedades", titulo: "Episódio 2");
+ep2.AdicionarConvidado("Rafael");
+ep2.AdicionarConvidado("Mari");
 
 podcast.AdicionarEpisodio(ep1);
 podcast.AdicionarEpisodio(ep2);
