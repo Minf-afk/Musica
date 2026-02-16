@@ -23,7 +23,7 @@ namespace Musica
         public void ExibirDetalhes()
         {
             AdicionarEpisodio();
-            Console.WriteLine($"Host: {Host} do dia, dando inicio ao episódio do dia: {Nome}\n");
+            Console.WriteLine($"Host do dia: {Host} , dando inicio ao episódio do dia: {Nome}\n");
             Console.WriteLine($"Total de episódios: {TotalEpisodios}");
         }
 
