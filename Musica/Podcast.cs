@@ -22,7 +22,6 @@ namespace Musica
             episodios.Add(episodio);
             TotalEpisodios++;
         }
-
         public void ExibirDetalhes()
         {
             Console.WriteLine($"Podcast: {Nome}");
