@@ -8,7 +8,7 @@ namespace Musica
         public string Nome { get; }
         public int TotalEpisodios { get; private set; }
 
-        private List<Episodio> Episodios { get; } = new();
+        private List<Episodio> episodios { get; } = new();
 
         public Podcast(string host, string nome)
         {
@@ -19,7 +19,7 @@ namespace Musica
 
         public void AdicionarEpisodio(Episodio episodio)
         {
-            Episodios.Add(episodio);
+            episodios.Add(episodio);
             TotalEpisodios++;
         }
 
@@ -30,7 +30,7 @@ namespace Musica
             Console.WriteLine($"Total de episódios: {TotalEpisodios}");
             Console.WriteLine("----------------------------------");
 
-            foreach (var ep in Episodios)
+            foreach (var ep in episodios.OrderBy(e => e.Ordem))
             {
                 ep.ExibirDetalhes();
                 Console.WriteLine();
