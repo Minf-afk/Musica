@@ -8,6 +8,8 @@ namespace Musica
         public string Nome { get; }
         public int TotalEpisodios { get; private set; }
 
+        private List<Episodio> Episodios { get; } = new();
+
         public Podcast(string host, string nome)
         {
             Host = host;
@@ -15,16 +17,24 @@ namespace Musica
             TotalEpisodios = 0;
         }
 
-        public void AdicionarEpisodio()
+        public void AdicionarEpisodio(Episodio episodio)
         {
+            Episodios.Add(episodio);
             TotalEpisodios++;
         }
 
         public void ExibirDetalhes()
         {
-            AdicionarEpisodio();
-            Console.WriteLine($"Host do dia: {Host} , dando inicio ao episódio do dia: {Nome}\n");
+            Console.WriteLine($"Podcast: {Nome}");
+            Console.WriteLine($"Host: {Host}");
             Console.WriteLine($"Total de episódios: {TotalEpisodios}");
+            Console.WriteLine("----------------------------------");
+
+            foreach (var ep in Episodios)
+            {
+                ep.ExibirDetalhes();
+                Console.WriteLine();
+            }
         }
 
     }

@@ -1,32 +1,39 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Reflection.Metadata.Ecma335;
-using System.Text;
 
 namespace Musica
 {
     public class Episodio
     {
         public int Duracao { get; set; }
-        public int Ordem { get; }
-        public string Descri { get; set; }
+        public int Ordem { get; private set; }
+        public string Descricao { get; set; }
         public string Titulo { get; set; }
 
-        public List<string> Convidado { get; } = new();
+        public List<string> Convidados { get; } = new();
 
         public Episodio(int dur, int ordem, string descri, string titulo)
         {
             Duracao = dur;
             Ordem = ordem;
-            Descri = descri;
+            Descricao = descri;
             Titulo = titulo;
         }
 
-        void AdicionarConvidados(string nome)
+        public void ExibirDetalhes()
         {
-            if(!string.IsNullOrWhiteSpace(nome))
-                Convidado.Add(nome);
+            Console.WriteLine($"Episódio {Ordem}: {Titulo}");
+            Console.WriteLine($"Tema: {Descricao}");
+            Console.WriteLine($"Duração: {Duracao} min");
+
+            if (Convidados.Count > 0)
+                Console.WriteLine("Convidados: " + string.Join(", ", Convidados));
         }
 
+        public void AdicionarConvidado(string nome)
+        {
+            if (!string.IsNullOrWhiteSpace(nome))
+                Convidados.Add(nome);
+        }
     }
 }
